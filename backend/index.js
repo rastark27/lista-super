@@ -17,6 +17,17 @@ const dbConfig = {
 
 const pool = mysql.createPool(dbConfig);
 
+// Middleware para logs de peticiones (útil para debuggear desde el celular)
+app.use((req, res, next) => {
+    console.log(`${new Date().toISOString()} - ${req.method} ${req.url}`);
+    next();
+});
+
+// Ruta de prueba (Health Check)
+app.get('/', (req, res) => {
+    res.send('Servidor de Lista de Compras funcionando correctamente');
+});
+
 // Obtener todos los productos
 app.get('/api/productos', async (req, res) => {
     try {
