@@ -10,3 +10,6 @@ build/
 # Logs
 npm-debug.log*
 yarn-debug.log*
+
+# Datos locales del backend
+backend/data.json
